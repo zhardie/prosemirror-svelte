@@ -85,7 +85,7 @@ export const nodes = {
                {tag: "h4", attrs: {level: 4}},
                {tag: "h5", attrs: {level: 5}},
                {tag: "h6", attrs: {level: 6}}],
-    toDOM(node) { return ["h" + node.attrs.level, 0] }
+    toDOM(node) { return ["h" + node.attrs.level, {class: "title"}, 0] }
   },
 
   // :: NodeSpec A code listing. Disallows marks or non-text inline
@@ -127,6 +127,8 @@ export const nodes = {
     }}],
     toDOM(node) { let {src, alt, title} = node.attrs; return ["img", {src, alt, title}] }
   },
+
+
 
   // :: NodeSpec A hard line break, represented in the DOM as `<br>`.
   hard_break: {
